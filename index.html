@@ -1,0 +1,1050 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#071014">
+    <meta name="description" content="Explore the Genesis L1 ecosystem.">
+    <title>Genesis Ocean — Ecosystem Explorer</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/genesis-ocean-icon.png">
+    <link rel="stylesheet" href="src/css/base.css">
+    <link rel="stylesheet" href="src/css/layout.css">
+    <link rel="stylesheet" href="src/css/universe.css">
+    <link rel="stylesheet" href="src/css/uptime.css">
+    <link rel="stylesheet" href="src/css/apps.css">
+    <link rel="stylesheet" href="src/css/helyx.css">
+    <link rel="stylesheet" href="src/css/community-pool.css">
+    <script type="module" src="src/js/app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="#universe" aria-label="Genesis Ocean home">
+          <span>GENESIS <span class="brand-light">OCEAN</span></span>
+        </a>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-link is-active" type="button" data-section="universe" aria-current="page">Universe</button>
+          <button class="nav-link" type="button" data-section="uptime">Uptime</button>
+          <button class="nav-link" type="button" data-section="community-pool">Community Pool</button>
+          <button class="nav-link" type="button" data-section="apps">Apps</button>
+          <button class="nav-link" type="button" data-section="helyx">Helyx</button>
+        </nav>
+        <span class="network-label"><span>GENESIS L1</span><span class="connection-status" data-connection-status data-state="connecting"><span class="status-dot" aria-hidden="true"></span><span data-connection-label>Connecting</span></span></span>
+      </header>
+
+      <main id="main-content">
+        <section class="view-section universe-section is-visible" id="universe" data-view="universe" aria-labelledby="universe-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">ECOSYSTEM EXPLORER</p>
+              <h1 id="universe-title">The Universe</h1>
+              <p class="section-description">A living map of the Genesis L1 network.</p>
+            </div>
+          </div>
+          <div class="network-overview" aria-live="polite" aria-label="Live Genesis network data">
+            <div><span>Cosmos chain ID</span><strong data-chain-id>Connecting</strong></div>
+            <div><span>Latest block</span><strong data-block-height>Connecting</strong></div>
+            <div><span>Block time (UTC)</span><strong data-block-time>Connecting</strong></div>
+            <div><span>Active validators</span><strong data-validator-count>Connecting</strong></div>
+          </div>
+          <p class="network-error" data-network-error role="status" hidden></p>
+          <details class="validator-details" data-validator-details hidden>
+            <summary data-validator-summary>Active validators</summary>
+            <ol data-validator-list></ol>
+          </details>
+          <div class="universe-stage" aria-label="Three-dimensional Genesis Ocean core visualization.">
+            <div class="universe-canvas" data-universe-canvas aria-hidden="true"></div>
+            <p class="universe-fallback" data-universe-fallback role="status" hidden>3D visualization is unavailable in this browser. Please enable WebGL or try another browser.</p>
+            <div class="universe-controls" role="group" aria-label="Universe camera controls">
+              <button class="universe-scroll-zoom" type="button" data-scroll-zoom aria-pressed="false">Scroll Zoom OFF</button>
+              <button class="universe-explore" type="button" data-explore-universe aria-pressed="false"><span aria-hidden="true">↻</span> Enable Rotation</button>
+              <button type="button" data-zoom-out aria-label="Zoom out" title="Zoom out">−</button>
+              <button type="button" data-zoom-in aria-label="Zoom in" title="Zoom in">+</button>
+              <button type="button" data-recenter aria-label="Recenter universe" title="Recenter universe">⌖</button>
+            </div>
+            <div class="scene-label" data-scene-label role="status" hidden></div>
+            <aside class="floating-card" data-object-card aria-live="polite" hidden>
+              <button class="card-close" type="button" data-close-card aria-label="Close selected object card">×</button>
+              <p class="card-eyebrow" data-card-type></p>
+              <h2 data-card-title></h2>
+              <dl data-card-details></dl>
+              <a class="card-explorer-link" data-card-explorer target="_blank" rel="noopener noreferrer" hidden>Open in GL1X</a>
+              <p class="card-cluster-status" data-cluster-status hidden></p>
+              <button class="card-back" type="button" data-card-back hidden></button>
+              <button class="card-back" type="button" data-card-back-validator hidden></button>
+            </aside>
+            <span class="stage-coordinate coordinate-top">ECOSYSTEM / 001</span>
+            <span class="stage-coordinate coordinate-bottom">VISUALIZATION SPACE</span>
+          </div>
+        </section>
+
+        <section class="view-section" id="uptime" data-view="uptime" aria-labelledby="uptime-title" hidden>
+          <div class="section-heading">
+            <div><p class="eyebrow">GENESIS L1</p><h1 id="uptime-title">Uptime</h1><p class="section-description">Validator signing history across recent blocks.</p></div>
+          </div>
+          <div data-uptime-panel></div>
+        </section>
+
+        <section class="view-section" id="community-pool" data-view="community-pool" aria-labelledby="pool-title" hidden>
+          <div class="section-heading">
+            <div><p class="eyebrow">GENESIS L1</p><h1 id="pool-title">Community Pool</h1><p class="section-description">Community pool balance, history, and indicators from a verified network source.</p></div>
+          </div>
+
+          <div class="pool-container">
+            <div class="pool-metrics" aria-label="Community pool key indicators">
+              <div class="pool-metric">
+                <span class="pool-metric-label">Pool Balance</span>
+                <span class="pool-metric-value" data-pool-balance>—</span>
+              </div>
+              <div class="pool-metric">
+                <span class="pool-metric-label">24h Change</span>
+                <span class="pool-metric-value" data-pool-change-24h>—</span>
+              </div>
+              <div class="pool-metric">
+                <span class="pool-metric-label">Supply Share</span>
+                <span class="pool-metric-value" data-pool-supply-share>—</span>
+              </div>
+              <div class="pool-metric">
+                <span class="pool-metric-label">Total Supply</span>
+                <span class="pool-metric-value" data-pool-total-supply>—</span>
+              </div>
+              <div class="pool-metric">
+                <span class="pool-metric-label">Balance Snapshot Height</span>
+                <span class="pool-metric-value" data-pool-snapshot-height>—</span>
+              </div>
+              <div class="pool-metric">
+                <span class="pool-metric-label">Current Chain Height</span>
+                <span class="pool-metric-value" data-pool-chain-height>—</span>
+              </div>
+              <div class="pool-metric">
+                <span class="pool-metric-label">Last Updated</span>
+                <span class="pool-metric-value" data-pool-last-updated>—</span>
+              </div>
+            </div>
+
+            <section class="pool-total-approved" aria-label="Approved Community Pool spending">
+              <h3 class="pool-total-approved-title">Approved Community Pool Spending</h3>
+              <p class="pool-total-approved-value" data-pool-total-approved-value>Total Approved: 0.00 L1</p>
+              <p class="pool-total-approved-note">Total value of passed Community Pool spending proposals.</p>
+            </section>
+
+              <div class="pool-proposals-header">
+                <h2>Governance Proposals</h2>
+                <p>Community Pool spending proposals submitted through Genesis L1 governance.</p>
+                <nav class="pool-proposal-filters" role="toolbar" aria-label="Filter governance proposals">
+                  <button class="pool-proposal-filter is-active" type="button" data-pool-proposal-filter="all" aria-pressed="true">All</button>
+                  <button class="pool-proposal-filter" type="button" data-pool-proposal-filter="passed" aria-pressed="false">Approved</button>
+                  <button class="pool-proposal-filter" type="button" data-pool-proposal-filter="rejected" aria-pressed="false">Rejected</button>
+                </nav>
+              </div>
+              <p class="pool-proposals-loading" data-pool-proposals-loading>Loading governance proposals…</p>
+              <p class="pool-proposals-error" data-pool-proposals-error hidden></p>
+              <p class="pool-proposals-empty" data-pool-proposals-empty hidden>No governance proposals found.</p>
+              <div class="pool-proposals-list" data-pool-proposals-list></div>
+            </div>
+
+            <p class="pool-loading" data-pool-loading>Loading community pool data…</p>
+            <p class="pool-error" data-pool-error hidden></p>
+        </section>
+
+        <section class="view-section" id="apps" data-view="apps" aria-labelledby="apps-title" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">EXPLORE THE ECOSYSTEM</p>
+              <h1 id="apps-title">Apps</h1>
+              <p class="section-description">Verified applications, tools, and resources for the Genesis L1 ecosystem.</p>
+            </div>
+          </div>
+
+          <div class="apps-container">
+            <nav class="apps-filter-bar" role="toolbar" aria-label="Filter ecosystem apps by category">
+              <button class="apps-filter-btn is-active" type="button" data-apps-filter="all" aria-pressed="true">
+                All <span class="apps-filter-count">27</span>
+              </button>
+              <button class="apps-filter-btn" type="button" data-apps-filter="explore" aria-pressed="false">
+                Explore <span class="apps-filter-count">3</span>
+              </button>
+              <button class="apps-filter-btn" type="button" data-apps-filter="wallets" aria-pressed="false">
+                Wallets &amp; Staking <span class="apps-filter-count">3</span>
+              </button>
+              <button class="apps-filter-btn" type="button" data-apps-filter="defi" aria-pressed="false">
+                DeFi &amp; IBC <span class="apps-filter-count">2</span>
+              </button>
+              <button class="apps-filter-btn" type="button" data-apps-filter="dapps-science" aria-pressed="false">
+                DApps &amp; Science <span class="apps-filter-count">6</span>
+              </button>
+              <button class="apps-filter-btn" type="button" data-apps-filter="network-tools" aria-pressed="false">
+                Network Tools <span class="apps-filter-count">3</span>
+              </button>
+              <button class="apps-filter-btn" type="button" data-apps-filter="dev" aria-pressed="false">
+                Developer Tools <span class="apps-filter-count">7</span>
+              </button>
+              <button class="apps-filter-btn" type="button" data-apps-filter="ecosystem" aria-pressed="false">
+                Ecosystem <span class="apps-filter-count">3</span>
+              </button>
+            </nav>
+
+            <div class="apps-grid" role="region" aria-label="Ecosystem applications and tools">
+              <!-- Card 2: GL1X Explorer -->
+              <article class="app-card" data-app-card data-app-id="gl1x-explorer" data-category="explore">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                      <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                      <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Explorer &amp; Science</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1X Explorer</h2>
+                  <p class="app-card-description">Open-source explorer and bioinformatics analysis suite indexing Genesis L1 Cosmos and EVM transactions with scientific data queries.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1x.com</span>
+                  <a class="app-card-action" href="https://gl1x.com" target="_blank" rel="noopener noreferrer" aria-label="Open GL1X Explorer in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="helyx-names" data-category="ecosystem">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M8 14v-4m0 2h4m0-2v4m3 0h.01"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">.gl1 Names</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Helyx Names</h2>
+                  <p class="app-card-description">Register .gl1 names and resolve names or addresses on Genesis L1 EVM.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">helyxnames.helyxlab.workers.dev</span>
+                  <a class="app-card-action" href="https://helyxnames.helyxlab.workers.dev/" target="_blank" rel="noopener noreferrer" aria-label="Open Helyx Names in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="unmask-crypto" data-category="explore">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 3v18h18M7 15l4-4 3 2 5-6"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Chain Analytics</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Unmask Crypto</h2>
+                  <p class="app-card-description">Explore L1 and wL1 trades, staking flows, and wallet activity across Genesis L1 and Base.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">unmaskcrypto.io</span>
+                  <a class="app-card-action" href="https://unmaskcrypto.io/" target="_blank" rel="noopener noreferrer" aria-label="Open Unmask Crypto in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="gl1x-chess" data-category="dapps-science">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 21h14M7 17h10l-2-5 2-3-2-3h-3l-3 3-2 1 1 3 3-1-2 5"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">On-Chain Game</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1X Chess</h2>
+                  <p class="app-card-description">Play chess against a neural network stored on Genesis L1. No wallet required.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1x.com/dapps/chess</span>
+                  <a class="app-card-action" href="https://gl1x.com/dapps/chess" target="_blank" rel="noopener noreferrer" aria-label="Open GL1X Chess in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="gl1x-api-reference" data-category="dev">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 4l-4 16"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Explorer API</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1X API Reference</h2>
+                  <p class="app-card-description">Browse endpoint documentation for GL1X ledger, governance, and developer data.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1x.com/api-reference</span>
+                  <a class="app-card-action" href="https://gl1x.com/api-reference" target="_blank" rel="noopener noreferrer" aria-label="Open GL1X API Reference in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="gl1x-mcp" data-category="dev">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="9" width="6" height="6" rx="1"></rect><rect x="15" y="3" width="6" height="6" rx="1"></rect><rect x="15" y="15" width="6" height="6" rx="1"></rect><path d="M9 12h3m0-6h3m-3 12h3M12 6v12"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">AI Connector</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1X MCP</h2>
+                  <p class="app-card-description">Connect an MCP-compatible client to read-only Genesis L1 data and GL1X tools.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1x.com/dapps/mcp</span>
+                  <a class="app-card-action" href="https://gl1x.com/dapps/mcp" target="_blank" rel="noopener noreferrer" aria-label="Open GL1X MCP in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="gl1x-molnft-search" data-category="dapps-science">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="10" cy="10" r="6"></circle><path d="m14.5 14.5 5 5M7 10h6m-3-3v6"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Molecular Search</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1X MolNFT Search</h2>
+                  <p class="app-card-description">Find indexed MolNFT records by PDB ID, UniProt accession, title, or sequence.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1x.com/bio/search</span>
+                  <a class="app-card-action" href="https://gl1x.com/bio/search" target="_blank" rel="noopener noreferrer" aria-label="Open GL1X MolNFT Search in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="gl1x-ibc-transfers" data-category="defi">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 8h16m-4-4 4 4-4 4M20 16H4m4-4-4 4 4 4"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Transfer History</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1X IBC Transfers</h2>
+                  <p class="app-card-description">Inspect indexed inbound and outbound IBC transfers on Genesis L1.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1x.com/ibc-transfers</span>
+                  <a class="app-card-action" href="https://gl1x.com/ibc-transfers" target="_blank" rel="noopener noreferrer" aria-label="Open GL1X IBC Transfers in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <article class="app-card" data-app-card data-app-id="gl1x-docs" data-category="dev">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 5h5a3 3 0 0 1 3 3v12a3 3 0 0 0-3-3H4zm16 0h-5a3 3 0 0 0-3 3v12a3 3 0 0 1 3-3h5z"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Developer Guides</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1X Documentation</h2>
+                  <p class="app-card-description">Read guides to the explorer architecture, indexing, data provenance, and developer tools.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1x.com/docs</span>
+                  <a class="app-card-action" href="https://gl1x.com/docs" target="_blank" rel="noopener noreferrer" aria-label="Open GL1X Documentation in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 3: Genesis L1 Staking -->
+              <article class="app-card" data-app-card data-app-id="genesis-staking" data-category="wallets">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Staking Portal</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Genesis L1 Staking</h2>
+                  <p class="app-card-description">Official non-custodial staking interface to delegate native L1 coins, redelegate between validators, and claim rewards.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">genesisl1.com/stake.html</span>
+                  <a class="app-card-action" href="https://genesisl1.com/stake.html" target="_blank" rel="noopener noreferrer" aria-label="Open Genesis L1 Staking in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 4: Keplr Wallet -->
+              <article class="app-card" data-app-card data-app-id="keplr-wallet" data-category="wallets">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                      <line x1="2" y1="10" x2="22" y2="10"></line>
+                      <circle cx="16" cy="15" r="1"></circle>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Cosmos Wallet</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Keplr Wallet</h2>
+                  <p class="app-card-description">Leading Cosmos interchain wallet supporting Genesis L1 native accounts, staking delegation, and IBC transfers.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">keplr.app</span>
+                  <a class="app-card-action" href="https://www.keplr.app" target="_blank" rel="noopener noreferrer" aria-label="Open Keplr Wallet in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 5: MetaMask -->
+              <article class="app-card" data-app-card data-app-id="metamask-wallet" data-category="wallets">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                      <polyline points="2 17 12 22 22 17"></polyline>
+                      <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">EVM Wallet</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">MetaMask</h2>
+                  <p class="app-card-description">Web3 browser wallet compatible with Genesis L1 EVM via Chain ID 29 and the official JSON-RPC endpoint.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">metamask.com</span>
+                  <a class="app-card-action" href="https://metamask.com/" target="_blank" rel="noopener noreferrer" aria-label="Open MetaMask in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 6: Osmosis DEX & Bridge -->
+              <article class="app-card" data-app-card data-app-id="osmosis-dex" data-category="defi">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="16 3 21 3 21 8"></polyline>
+                      <line x1="4" y1="20" x2="21" y2="3"></line>
+                      <polyline points="21 16 21 21 16 21"></polyline>
+                      <line x1="15" y1="15" x2="21" y2="21"></line>
+                      <line x1="4" y1="4" x2="9" y2="9"></line>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">IBC Liquidity</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Osmosis DEX &amp; Bridge</h2>
+                  <p class="app-card-description">Interchain decentralized exchange and IBC bridge connecting Genesis L1 (channel-1) with the broader Cosmos ecosystem.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">app.osmosis.zone</span>
+                  <a class="app-card-action" href="https://app.osmosis.zone" target="_blank" rel="noopener noreferrer" aria-label="Open Osmosis DEX in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 7: Chainlist Genesis L1 -->
+              <article class="app-card" data-app-card data-app-id="chainlist-genesis" data-category="dev">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Network Config</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Chainlist Genesis L1</h2>
+                  <p class="app-card-description">Verified EVM network profile to connect MetaMask and other Web3 wallets to Genesis L1 (Chain ID 29) with one click.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">chainlist.org/chain/29</span>
+                  <a class="app-card-action" href="https://chainlist.org/chain/29" target="_blank" rel="noopener noreferrer" aria-label="Open Chainlist Genesis L1 profile in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 8: Genesis EVM JSON-RPC -->
+              <article class="app-card" data-app-card data-app-id="genesis-evm-rpc" data-category="dev">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="4 17 10 11 4 5"></polyline>
+                      <line x1="12" y1="19" x2="20" y2="19"></line>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">EVM RPC</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Genesis EVM JSON-RPC</h2>
+                  <p class="app-card-description">Public Genesis L1 EVM endpoint. Use JSON-RPC POST requests from an Ethereum client.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">rpc.genesisl1.org</span>
+                  <a class="app-card-action" href="https://rpc.genesisl1.org" target="_blank" rel="noopener noreferrer" aria-label="Open Genesis EVM RPC in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 9: Cosmos REST API (LCD) -->
+              <article class="app-card" data-app-card data-app-id="cosmos-rest-lcd" data-category="dev">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                      <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                      <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                      <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Cosmos REST</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Cosmos REST API (LCD)</h2>
+                  <p class="app-card-description">Swagger interface for the Genesis L1 Cosmos REST API, including staking, bank supply, and governance queries.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">1317.genesisl1.org/swagger/</span>
+                  <a class="app-card-action" href="https://1317.genesisl1.org/swagger/" target="_blank" rel="noopener noreferrer" aria-label="Open Cosmos REST API documentation in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 10: Tendermint Consensus RPC -->
+              <article class="app-card" data-app-card data-app-id="tendermint-consensus-rpc" data-category="dev">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Consensus RPC</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Tendermint Consensus RPC</h2>
+                  <p class="app-card-description">Direct Tendermint RPC (:26657) and WebSocket (/websocket) for real-time block streaming and validator consensus queries.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">26657.genesisl1.org</span>
+                  <a class="app-card-action" href="https://26657.genesisl1.org" target="_blank" rel="noopener noreferrer" aria-label="Open Tendermint RPC in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 11: Genesis L1 Ecosystem Portal -->
+              <article class="app-card" data-app-card data-app-id="genesis-portal" data-category="ecosystem">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <line x1="2" y1="12" x2="22" y2="12"></line>
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Official Portal</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Genesis L1 Ecosystem Portal</h2>
+                  <p class="app-card-description">Official directory of Genesis L1 applications, protocols, and public infrastructure.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">genesisl1.com/ecosystem.html</span>
+                  <a class="app-card-action" href="https://genesisl1.com/ecosystem.html" target="_blank" rel="noopener noreferrer" aria-label="Open Genesis L1 Portal in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 12: GL1F Crypto -->
+              <article class="app-card" data-app-card data-app-id="gl1f-ml-studio" data-category="ecosystem">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                      <rect x="9" y="9" width="6" height="6"></rect>
+                      <line x1="9" y1="1" x2="9" y2="4"></line>
+                      <line x1="15" y1="1" x2="15" y2="4"></line>
+                      <line x1="9" y1="20" x2="9" y2="23"></line>
+                      <line x1="15" y1="20" x2="15" y2="23"></line>
+                      <line x1="20" y1="9" x2="23" y2="9"></line>
+                      <line x1="20" y1="14" x2="23" y2="14"></line>
+                      <line x1="1" y1="9" x2="4" y2="9"></line>
+                      <line x1="1" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">AI &amp; DeSci</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GL1F Crypto</h2>
+                  <p class="app-card-description">Build and backtest crypto-market models in the browser and publish them on Genesis L1.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">crypto.gl1f.com</span>
+                  <a class="app-card-action" href="https://crypto.gl1f.com" target="_blank" rel="noopener noreferrer" aria-label="Open GL1F Crypto in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+
+              <!-- Card 13: L1coin Web3Desk -->
+              <article class="app-card" data-app-card data-app-id="l1coin-web3desk" data-category="explore">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                      <path d="M9 3v18"></path>
+                      <path d="M3 9h18"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Network Desk</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">L1coin Web3Desk</h2>
+                  <p class="app-card-description">Non-custodial Web3 desk for L1 Coin on GenesisL1 with supply, staking, governance, bridge, IBC, and ledger exploration tools.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">l1coin.com</span>
+                  <a class="app-card-action" href="https://l1coin.com" target="_blank" rel="noopener noreferrer" aria-label="Open L1coin Web3Desk in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 14: GenesisL1 Forest -->
+              <article class="app-card" data-app-card data-app-id="genesisl1-forest" data-category="dapps-science">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s-8-4-8-10V5l8-3 8 3v7c0 6-8 10-8 10z"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">AI Studio</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GenesisL1 Forest (GL1F)</h2>
+                  <p class="app-card-description">Browser-based decentralized AI studio for training GBDT models and minting them as on-chain Model NFTs on GenesisL1.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">gl1f.com</span>
+                  <a class="app-card-action" href="https://gl1f.com" target="_blank" rel="noopener noreferrer" aria-label="Open GenesisL1 Forest in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 15: MolNFT -->
+              <article class="app-card" data-app-card data-app-id="molnft" data-category="dapps-science">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="M8 12h8"></path>
+                      <path d="M12 8v8"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Molecular Data</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">MolNFT</h2>
+                  <p class="app-card-description">Molecular structures published as ERC-721 NFTs on GenesisL1, with on-chain storage and decentralized scientific data access.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">app.molnft.org</span>
+                  <a class="app-card-action" href="https://app.molnft.org" target="_blank" rel="noopener noreferrer" aria-label="Open MolNFT in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 16: CIPNFT -->
+              <article class="app-card" data-app-card data-app-id="cipnft" data-category="dapps-science">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Encrypted IP</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">CIPNFT</h2>
+                  <p class="app-card-description">Browser-only protocol for encrypting sensitive data locally and minting it as an on-chain NFT on GenesisL1.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">cipnft.com</span>
+                  <a class="app-card-action" href="https://cipnft.com" target="_blank" rel="noopener noreferrer" aria-label="Open CIPNFT in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 17: Broccoli -->
+              <article class="app-card" data-app-card data-app-id="broccoli" data-category="dapps-science">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="12" cy="12" r="3"></circle>
+                      <path d="M12 2v3"></path>
+                      <path d="M12 19v3"></path>
+                      <path d="M4.22 4.22l2.12 2.12"></path>
+                      <path d="M17.66 17.66l2.12 2.12"></path>
+                      <path d="M2 12h3"></path>
+                      <path d="M19 12h3"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Search Clustering</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">Broccoli</h2>
+                  <p class="app-card-description">Open-source search results clustering engine that turns searches into zoomable topic maps in the browser.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">genesisl1.com/broccoli.html</span>
+                  <a class="app-card-action" href="https://genesisl1.com/broccoli.html" target="_blank" rel="noopener noreferrer" aria-label="Open Broccoli in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 18: GenesisL1 Governance -->
+              <article class="app-card" data-app-card data-app-id="genesisl1-governance" data-category="network-tools">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 3l7 4v5c0 5-3.5 9-7 9s-7-4-7-9V7l7-4z"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Governance</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GenesisL1 Governance</h2>
+                  <p class="app-card-description">Public interface for inspecting GenesisL1 governance proposals, deposits, and voting with bonded L1.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">genesisl1.com/gov.html</span>
+                  <a class="app-card-action" href="https://genesisl1.com/gov.html" target="_blank" rel="noopener noreferrer" aria-label="Open GenesisL1 Governance in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 19: GenesisL1 Bridge -->
+              <article class="app-card" data-app-card data-app-id="genesisl1-bridge" data-category="network-tools">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 12h16"></path>
+                      <path d="M10 6l-6 6 6 6"></path>
+                      <path d="M14 6l6 6-6 6"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Experimental Bridge</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GenesisL1 Bridge</h2>
+                  <p class="app-card-description">Community bridge interface for moving wrapped L1 between GenesisL1 and Base.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">genesisl1.com/bridge.html</span>
+                  <a class="app-card-action" href="https://genesisl1.com/bridge.html" target="_blank" rel="noopener noreferrer" aria-label="Open GenesisL1 Bridge in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <!-- Card 20: GenesisL1 Swap -->
+              <article class="app-card" data-app-card data-app-id="genesisl1-swap" data-category="network-tools">
+                <div class="app-card-header">
+                  <div class="app-card-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M7 16V4m0 0L3 8m4-4l4 4"></path>
+                      <path d="M17 8v12m0 0l4-4m-4 4l-4-4"></path>
+                    </svg>
+                  </div>
+                  <span class="app-card-badge">Swap Routes</span>
+                </div>
+                <div class="app-card-body">
+                  <h2 class="app-card-title">GenesisL1 Swap</h2>
+                  <p class="app-card-description">Public routes for accessing L1 through Osmosis IBC and a wL1/USDC pool on Base.</p>
+                </div>
+                <div class="app-card-footer">
+                  <span class="app-card-endpoint">genesisl1.com/swap.html</span>
+                  <a class="app-card-action" href="https://genesisl1.com/swap.html" target="_blank" rel="noopener noreferrer" aria-label="Open GenesisL1 Swap in a new tab">
+                    <span>Open</span>
+                    <svg class="external-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                      <polyline points="15 3 21 3 21 9"></polyline>
+                      <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                  </a>
+                </div>
+              </article>
+
+              <p class="apps-empty-state" data-apps-empty hidden>No applications found in this category.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Helyx Section -->
+        <section class="view-section helyx-section" id="helyx" data-view="helyx" aria-labelledby="helyx-title" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">VALIDATOR & INFRASTRUCTURE</p>
+              <h1 id="helyx-title">Helyx</h1>
+              <p class="section-description">Independent Genesis L1 validator and open-source developer.</p>
+            </div>
+          </div>
+
+          <div class="helyx-content">
+            <!-- About -->
+            <article class="helyx-about" aria-labelledby="helyx-about-title">
+              <header>
+                <img src="/images/helyx-avatar.svg" width="512" height="512" alt="" class="helyx-avatar" loading="lazy">
+                <h2 id="helyx-about-title">About Helyx</h2>
+              </header>
+              <div class="helyx-about-body">
+                <p>Helyx builds open-source tools and visual experiences for the Genesis L1 ecosystem.</p>
+                <a class="helyx-link" href="https://helyx.helyxlab.workers.dev/" target="_blank" rel="noopener noreferrer">Official Helyx website →</a>
+              </div>
+            </article>
+
+            <!-- Validator -->
+            <article class="helyx-validator" aria-labelledby="helyx-validator-title">
+              <h2 id="helyx-validator-title">Validator</h2>
+              <div class="helyx-validator-grid">
+                <dl class="helyx-validator-identity">
+                  <dt>Moniker</dt>
+                  <dd class="helyx-moniker" data-validator-moniker>—</dd>
+                  <dt>Operator Address</dt>
+                  <dd class="helyx-operator-address" data-validator-address>genesisvaloper1tzqmp8ed3e6rgqrfscekg87pe5hd90n0ax4ghd</dd>
+                  <dt>Status</dt>
+                  <dd class="helyx-status" data-validator-status>—</dd>
+                </dl>
+                <dl class="helyx-validator-metrics">
+                  <dt>Validator Stake</dt>
+                  <dd class="helyx-stake" data-validator-stake>—</dd>
+                  <dt>Commission</dt>
+                  <dd class="helyx-commission" data-validator-commission>—</dd>
+                  <dt>Delegators</dt>
+                  <dd class="helyx-delegator-count" data-validator-delegators>—</dd>
+                </dl>
+              </div>
+              <p class="helyx-validator-note" data-validator-note role="status" hidden></p>
+              <div class="helyx-validator-links">
+                <a class="helyx-link" href="https://gl1x.com/validator/genesisvaloper1tzqmp8ed3e6rgqrfscekg87pe5hd90n0ax4ghd" target="_blank" rel="noopener noreferrer" data-validator-explorer-link>View on GL1X →</a>
+                <a class="helyx-link" href="https://genesisl1.com/stake.html" target="_blank" rel="noopener noreferrer">Staking dashboard →</a>
+              </div>
+            </article>
+
+            <!-- Infrastructure -->
+            <article class="helyx-infrastructure" aria-labelledby="helyx-infrastructure-title">
+              <h2 id="helyx-infrastructure-title">Infrastructure</h2>
+              <p class="helyx-copy">Helyx runs its validator on premises, owns and maintains the hardware, and manages operations independently.</p>
+            </article>
+
+            <!-- Projects -->
+            <article class="helyx-initiatives" aria-labelledby="helyx-initiatives-title">
+              <h2 id="helyx-initiatives-title">Projects</h2>
+              <div class="helyx-initiatives-grid">
+                <article class="helyx-initiative-card" data-initiative="genesis-ocean">
+                  <h3>Genesis Ocean</h3>
+                  <p>An independent visual explorer for the Genesis L1 ecosystem.</p>
+                  <footer>
+                    <a href="#universe" class="helyx-link">Explore →</a>
+                  </footer>
+                </article>
+
+                <article class="helyx-initiative-card" data-initiative="helyx-names">
+                  <h3>Helyx Names</h3>
+                  <p>An on-chain naming service for mapping <code>.gl1</code> names to Genesis L1 EVM addresses.</p>
+                  <footer>
+                    <a href="https://helyxnames.helyxlab.workers.dev/" class="helyx-link" target="_blank" rel="noopener noreferrer">Open Helyx Names →</a>
+                  </footer>
+                </article>
+              </div>
+            </article>
+          </div>
+        </section>
+
+      <footer class="site-footer">
+        <div class="footer-links">
+          <span>&copy; 2026 <a href="https://helyx.helyxlab.workers.dev/">Helyx</a></span>
+          <span aria-hidden="true">·</span>
+          <a href="/licenses/genesis-ocean.txt">MIT Licensed</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com/HelyxLab/genesis-ocean" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span aria-hidden="true">·</span>
+          <a href="./legal.html">Legal &amp; Transparency</a>
+        </div>
+        <span class="footer-caption">AN INDEPENDENT GENESIS L1 EXPLORER</span>
+      </footer>
+    </div>
+  </body>
+</html>

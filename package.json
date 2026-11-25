@@ -1,0 +1,25 @@
+{
+  "name": "genesis-ocean",
+  "version": "1.0.0",
+  "description": "An independent visual explorer for the Genesis L1 ecosystem.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test src/js/data/*.test.mjs src/js/*.test.mjs src/js/universe/*.test.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HelyxLab/genesis-ocean.git"
+  },
+  "keywords": [],
+  "author": "Helyx",
+  "license": "MIT",
+  "devDependencies": {
+    "vite": "^8.3.7"
+  },
+  "dependencies": {
+    "three": "^0.187.0"
+  }
+}

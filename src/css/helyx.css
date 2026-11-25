@@ -1,0 +1,272 @@
+/* Genesis Ocean — Helyx Section */
+
+.helyx-section .section-heading {
+  margin-bottom: 36px;
+}
+
+.helyx-section .eyebrow {
+  margin-bottom: 8px;
+}
+
+.helyx-section h1 {
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin: 0;
+}
+
+.helyx-content {
+  display: grid;
+  gap: 24px;
+  max-width: 800px;
+}
+
+/* About — Avatar + Identity */
+.helyx-about header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.helyx-avatar {
+  display: block;
+  width: 112px;
+  height: auto;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  background: #101e32;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.10);
+}
+
+.helyx-about h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.helyx-about-body,
+.helyx-copy {
+  color: var(--color-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.helyx-copy { margin: 0; }
+
+.helyx-about-body p {
+  margin: 0 0 8px;
+}
+
+/* Validator Grid */
+.helyx-validator-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 32px;
+}
+
+.helyx-validator-identity,
+.helyx-validator-metrics {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 8px 16px;
+  margin: 0;
+}
+
+.helyx-validator-identity dt,
+.helyx-validator-metrics dt {
+  color: var(--color-muted);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.helyx-validator-identity dd,
+.helyx-validator-metrics dd {
+  margin: 0;
+  color: var(--color-text);
+  font-size: 13px;
+  font-family: var(--font-mono);
+  overflow-wrap: anywhere;
+}
+
+.helyx-stake,
+.helyx-commission,
+.helyx-delegator-count {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.helyx-status {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.helyx-operator-address {
+  color: var(--color-muted);
+}
+
+.helyx-validator-note {
+  margin: 12px 0 0;
+  color: var(--color-muted);
+  font-size: 12px;
+}
+
+.helyx-validator-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 12px;
+}
+
+.helyx-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-accent);
+}
+
+.helyx-link:hover {
+  text-decoration: underline;
+}
+
+.helyx-validator h2,
+.helyx-infrastructure h2,
+.helyx-initiatives h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: var(--color-text);
+}
+
+/* Initiatives Grid */
+.helyx-initiatives-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.helyx-initiative-card {
+  padding: 16px;
+  border: 1px solid var(--color-line);
+  background: var(--color-panel);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.helyx-initiative-card h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.helyx-initiative-card p {
+  margin: 8px 0 0;
+  color: var(--color-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.helyx-initiative-card footer {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .helyx-section .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .helyx-content {
+    gap: 16px;
+  }
+
+  .helyx-section h1 {
+    font-size: clamp(24px, 4vw, 32px);
+  }
+
+  .helyx-avatar {
+    width: 96px;
+  }
+
+  .helyx-about h2 {
+    font-size: 16px;
+  }
+
+  .helyx-about-body,
+  .helyx-copy {
+    font-size: 13px;
+  }
+
+  .helyx-validator-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .helyx-validator-identity,
+  .helyx-validator-metrics {
+    gap: 6px 12px;
+  }
+
+  .helyx-validator-identity dt,
+  .helyx-validator-metrics dt {
+    font-size: 12px;
+  }
+
+  .helyx-validator-identity dd,
+  .helyx-validator-metrics dd {
+    font-size: 12px;
+  }
+
+  .helyx-initiatives-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .helyx-initiative-card {
+    padding: 12px;
+  }
+
+  .helyx-initiative-card h3 {
+    font-size: 13px;
+  }
+
+  .helyx-initiative-card p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .helyx-section h1 {
+    font-size: clamp(22px, 4vw, 30px);
+  }
+
+  .helyx-avatar {
+    width: 80px;
+  }
+
+  .helyx-validator-identity dt,
+  .helyx-validator-metrics dt {
+    font-size: 11px;
+  }
+
+  .helyx-validator-identity dd,
+  .helyx-validator-metrics dd {
+    font-size: 11px;
+  }
+
+  .helyx-initiative-card {
+    padding: 10px;
+  }
+
+  .helyx-initiative-card h3 {
+    font-size: 12px;
+  }
+
+  .helyx-initiative-card p {
+    font-size: 11px;
+  }
+
+}

@@ -1,0 +1,21 @@
+.uptime-panel { display: grid; gap: 12px; }
+.uptime-toolbar { display: grid; grid-template-columns: 220px auto minmax(0, 1fr); gap: 12px; align-items: center; }
+.uptime-search { min-width: 0; width: 100%; padding: 8px 10px; border: 1px solid var(--color-line); background: rgba(7,17,21,.8); color: var(--color-text); border-radius: 4px; }
+.uptime-status { min-block-size: 3em; align-content: center; color: var(--color-muted); font-size: 12px; line-height: 1.5; }
+.uptime-list { display: grid; gap: 12px; }
+.uptime-validator { border: 1px solid var(--color-line); border-radius: 4px; padding: 10px; }
+.uptime-validator-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.uptime-validator-head strong { display: block; }
+.uptime-validator-address { display: block; color: var(--color-muted); font-size: 11px; word-break: break-all; }
+.uptime-value { color: var(--color-text); font-weight: 600; }
+.uptime-blocks { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 8px; }
+.uptime-cell { display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex: 0 0 auto; }
+.uptime-cell.signed { background: #3ddc97; }
+.uptime-cell.missed { background: #e49a96; }
+.uptime-cell.unknown { background: #5b6662; }
+@media (max-width: 700px) {
+  .uptime-toolbar { grid-template-columns: minmax(0, 1fr) auto; row-gap: 4px; }
+  .uptime-status { grid-column: 1 / -1; }
+  .uptime-validator-address { display: none; }
+  .uptime-cell { width: 9px; height: 9px; }
+}

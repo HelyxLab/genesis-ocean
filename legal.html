@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071014">
+  <meta name="description" content="Legal information, privacy, licensing and transparency for Genesis Ocean.">
+  <title>Legal &amp; Transparency — Genesis Ocean</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="/images/genesis-ocean-icon.png">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/layout.css">
+  <style>
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 0 64px;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+    .legal-content h1 {
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.3;
+      font-weight: 600;
+    }
+    .legal-content h2 {
+      margin-top: 36px;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .legal-content p {
+      color: var(--color-muted);
+    }
+    .legal-content a, .legal-back {
+      color: var(--color-accent);
+    }
+    .legal-content a:hover, .legal-back:hover {
+      text-decoration: underline;
+    }
+    .legal-back {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <a class="brand" href="./index.html">
+        <span>GENESIS <span class="brand-light">OCEAN</span></span>
+      </a>
+      <a class="legal-back" href="./index.html">Back to Ocean &rarr;</a>
+    </header>
+
+    <main class="legal-content">
+      <h1>Legal &amp; Transparency</h1>
+
+      <p>Genesis Ocean is an independent, open-source visual explorer for the Genesis L1 ecosystem, created and maintained by Helyx.</p>
+
+      <section>
+        <h2>Independence</h2>
+        <p>Genesis Ocean is an independent community project, not an official Genesis L1 or GL1X product. Third-party names and marks belong to their respective owners.</p>
+      </section>
+
+      <section>
+        <h2>Data accuracy and limitations</h2>
+        <p>The explorer uses publicly available blockchain data. Information may be incomplete, delayed, unavailable, or inconsistent across data providers. Visual representations are intended to help visitors explore the network and should not be treated as authoritative blockchain records.</p>
+        <p>Genesis Ocean is provided for informational and educational purposes. It does not provide financial or investment advice.</p>
+      </section>
+
+      <section>
+        <h2>Availability and external dependencies</h2>
+        <p>The application depends on Genesis L1 public REST, RPC and WebSocket endpoints, the GL1X API, and external infrastructure. These services may experience interruptions or changes outside the control of Helyx.</p>
+      </section>
+
+      <section>
+        <h2>Privacy and public blockchain data</h2>
+        <p>Genesis Ocean is a read-only application. It does not require wallet connections, private keys, recovery phrases, or transaction signatures.</p>
+        <p>The application requests public blockchain information from external providers and loads fonts through Google Fonts. Hosting and external service providers may receive IP addresses, request metadata, and queried public blockchain identifiers under their respective privacy practices.</p>
+        <p>Blockchain addresses, transactions, validator information, and delegation records may be publicly accessible.</p>
+      </section>
+
+      <section>
+        <h2>Open-source licensing</h2>
+        <p>The original source code of Genesis Ocean is released under the MIT License. Third-party components remain subject to their respective licenses.</p>
+        <p>
+          <a href="/licenses/genesis-ocean.txt">MIT License</a><br>
+          <a href="/licenses/three.txt">Three.js License</a><br>
+          <a href="/licenses/notice.txt">Copyright and Third-Party Notices</a>
+        </p>
+      </section>
+
+      <section>
+        <h2>Branding and intellectual property</h2>
+        <p>The MIT License does not grant rights to the Helyx or Genesis Ocean names, logos, or reserved brand assets. All rights in original Helyx branding and artwork are reserved.</p>
+      </section>
+
+      <section>
+        <h2>Warranties and liability</h2>
+        <p>To the extent permitted by applicable law, Genesis Ocean is provided as is and as available, without warranties of accuracy, availability, reliability, or fitness for a particular purpose. Nothing in this notice excludes or limits rights, remedies, or liabilities that cannot lawfully be excluded or limited.</p>
+      </section>
+
+      <section>
+        <h2>Maintainer</h2>
+        <p>Genesis Ocean is maintained by <a href="https://helyx.helyxlab.workers.dev/">Helyx</a>, an independent validator and infrastructure initiative within the Genesis L1 ecosystem.</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-links">
+          <span>&copy; 2026 <a href="https://helyx.helyxlab.workers.dev/">Helyx</a></span>
+          <span aria-hidden="true">·</span>
+          <a href="/licenses/genesis-ocean.txt">MIT Licensed</a>
+          <span aria-hidden="true">·</span>
+          <a href="https://github.com/HelyxLab/genesis-ocean" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span aria-hidden="true">·</span>
+          <a href="./legal.html">Legal &amp; Transparency</a>
+        </div>
+        <span class="footer-caption">AN INDEPENDENT GENESIS L1 EXPLORER</span>
+      </footer>
+  </div>
+</body>
+</html>
