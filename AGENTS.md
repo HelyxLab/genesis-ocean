@@ -122,9 +122,9 @@ The main branch must always represent a reviewed, stable version.
 
 Development should happen in separate branches and be merged only after review.
 
-The v1.0.0 release candidate establishes a new repository baseline.
+The published v1.0.0 release establishes the stable repository baseline.
 
-The public repository is intended to be maintained at `HelyxLab/genesis-ocean`, with `main` representing reviewed releases and `develop` supporting ongoing development.
+The public repository is maintained at `HelyxLab/genesis-ocean`, with `main` representing reviewed releases and `develop` supporting ongoing development.
 
 The initial repository commit, release merges, tags, pushes, and deployments require explicit maintainer authorization.
 

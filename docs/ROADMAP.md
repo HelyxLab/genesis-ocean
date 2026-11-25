@@ -6,7 +6,8 @@ This is the living development plan for Genesis Ocean, from the audited Phase 4.
 
 - Repository: `HelyxLab/genesis-ocean`
 - Maintainer: Helyx
-- Release candidate: v1.0.0
+- Stable release: v1.0.0 (2026-11-25)
+- Release commit: `f985a54325f6a83701d0224b5747161367d41dac`
 - Baseline date: 2026-11-25
 - Stack: Vite, JavaScript ES modules, Three.js, CSS.
 - Application sections: Universe, Uptime, Community Pool, Apps, and Helyx.
@@ -14,8 +15,10 @@ This is the living development plan for Genesis Ocean, from the audited Phase 4.
 - Data sources: Genesis L1 LCD, RPC, WebSocket, and GL1X HTTP API.
 - License: MIT for original source code; reserved branding and third-party licenses remain separate.
 - Hosting: static deployment through Cloudflare Workers.
-- Verification: 320 automated tests passed before preparation of the clean repository. The final release checks remain pending.
-- The release candidate does not yet have a published Git tag.
+- Production website: https://genesisocean.helyxlab.workers.dev/
+- Legacy website: https://genesis-ocean.helyxlab.workers.dev/ (permanent HTTP 301 redirect).
+- Verification: 320 automated tests passed in the clean repository; production build verified and npm audit reported no vulnerabilities.
+- Git tag `v1.0.0` and the official GitHub release are published.
 
 Executable source code and automated tests establish actual implementation status.
 This roadmap governs approved phases, priorities, and development sequencing.
@@ -51,7 +54,7 @@ The Universe will support three distinct modes. These are behavioral requirement
 - Preserve the existing Genesis REST/LCD, RPC, and RPC WebSocket architecture. Keep GL1X available as the official explorer and an additional source where its verified capabilities are appropriate; do not treat it as a replacement without an approved, evidence-backed change.
 - Keep real-event ingestion and normalization distinct from visual presentation so that AUTO cannot create LIVE records.
 
-## Status at the v1.0.0 release candidate
+## Status at the v1.0.0 stable release
 
 | Area | Status |
 | --- | --- |
@@ -69,7 +72,7 @@ The Universe will support three distinct modes. These are behavioral requirement
 | AUTO and LIVE | Approved and planned |
 | Wallets and Activity Log | Approved and planned |
 | EVM, IBC and unified activity | Further integration planned |
-| Public release | Final verification pending |
+| Public release | Published on GitHub and Cloudflare Workers |
 
 ### Known limitations
 
@@ -423,16 +426,22 @@ when migrating the website.
 The five application sections are operational, including the
 existing MANUAL Universe experience.
 
-### Release candidate v1.0.0 — IN REVIEW
+### Release candidate v1.0.0 — REACHED
 
 Functional improvements, licensing, legal information, documentation,
 and targeted security checks have been prepared.
-Final tests, build verification, and publication approval remain pending.
+Final automated tests, production build verification, and maintainer publication approval were completed.
 
-### Public release v1.0.0 — PENDING
+### Public release v1.0.0 — REACHED
 
-Publish the reviewed source repository, release tag, and production
-website after final approval.
+Published on 2026-11-25 with an MIT-licensed public repository,
+official GitHub release, and Cloudflare Workers production website.
+The previous public address redirects permanently to the new website.
+HTTP access, legal information, license files, and preservation of
+redirect paths and query parameters were verified.
+
+Broader browser, accessibility, performance, and resilience audits
+remain ongoing quality objectives.
 
 ### Hybrid Cosmos + EVM track — PLANNED
 

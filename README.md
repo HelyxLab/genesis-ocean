@@ -4,6 +4,10 @@
 
 > A living map of the Genesis L1 network.
 
+**Live website:** [genesisocean.helyxlab.workers.dev](https://genesisocean.helyxlab.workers.dev/)
+
+**Stable release:** [v1.0.0](https://github.com/HelyxLab/genesis-ocean/releases/tag/v1.0.0)
+
 Genesis Ocean transforms public blockchain data into an interactive
 3D universe. Validators, delegators, and transactions are represented
 as celestial bodies, allowing visitors to explore the network through

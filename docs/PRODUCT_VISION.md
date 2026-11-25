@@ -3,9 +3,11 @@
 > **Definitive Architectural Source of Truth**
 > **Repository:** `HelyxLab/genesis-ocean`
 > **Maintainer:** Helyx
-> **Release Candidate:** v1.0.0
+> **Version:** v1.0.0
 > **Baseline Date:** 2026-11-25
-> **Stable Release:** Pending final verification and publication
+> **Stable Release:** Published on 2026-11-25
+> **Release Commit:** `f985a54325f6a83701d0224b5747161367d41dac`
+> **Production Website:** https://genesisocean.helyxlab.workers.dev/
 > **License:** MIT (original source code)
 > **Signature:** © 2026 Helyx
 > **Audience:** All human contributors and AI coding assistants (ChatGPT / Codex, GitHub Copilot, Google Antigravity / Gemini, Cline, Continue, and future agents).
@@ -89,7 +91,7 @@ Every capability, feature, and architectural element in Genesis Ocean belongs to
 
 An `IMPLEMENTED AND VERIFIED` claim requires evidence in the repository and in automated tests. Where a working implementation has only manual or live evidence, the status row uses the qualifier `IMPLEMENTED — LIVE-VERIFIED, NO AUTOMATED TESTS`; this is a verification qualifier, not a fifth capability category. A capability with no data, state, or behavior beyond a layout shell is documented as not implemented, even when an empty shell exists.
 
-### 3.1 Status Matrix at the v1.0.0 Release Candidate
+### 3.1 Status Matrix at the v1.0.0 Stable Release
 
 | Component / Area | Classification | Repository Evidence | Technical Capabilities & Status |
 | :--- | :--- | :--- | :--- |
@@ -117,40 +119,42 @@ An `IMPLEMENTED AND VERIFIED` claim requires evidence in the repository and in a
 | **Live Activity Log** | `APPROVED AND PLANNED` | Phase 5.4 in `docs/ROADMAP.md` | Tabular, filterable chronological record of normalized blockchain operations. Not yet implemented. |
 | **Bridge & Wrapping** | `APPROVED AND PLANNED` | Phase 5.5 in `docs/ROADMAP.md` | Visual representation of cross-chain IBC transfers and wrapped asset flows with explicit unverified remote receipt status. Not yet implemented. |
 | **Quality & Resilience Audits** | `APPROVED AND PLANNED` | Phase 6 in `docs/ROADMAP.md` | Systematic review of memory leaks, accessibility, touch navigation, rate-limit resilience, and error recovery. |
-| **Deployment Architecture** | `APPROVED AND PLANNED` | Phase 7 in `docs/ROADMAP.md` | Static Vite production deployment through Cloudflare Workers. Final publication and migration checks remain pending. |
+| **Deployment Architecture** | `IMPLEMENTED — LIVE-VERIFIED, NO AUTOMATED TESTS` | Phase 7 in `docs/ROADMAP.md` | Static Vite production deployment through Cloudflare Workers. Public HTTPS access, legal resources, and the legacy HTTP 301 redirect were verified. Broader operational testing remains ongoing. |
 | **Performance Benchmark Targets** | `PROPOSED FUTURE POSSIBILITY` | Sections 7.2 and 10.3 of this document | Sustained 60 FPS on mobile hardware, Google Lighthouse scores > 90 for performance and accessibility. Aspirational quality targets, not verified benchmarks. |
 
 The transaction-view contract remains unit-tested and is not fully integrated into the application.
 
-### 3.2 Repository State at the Release Candidate
+### 3.2 Repository State at the Stable Release
 
-- Release candidate: v1.0.0.
+- Stable release: v1.0.0.
 - Repository: `HelyxLab/genesis-ocean`.
 - Baseline date: 2026-11-25.
-- Automated tests: 320 passed before preparation of the clean repository.
+- Automated tests: 320 passed in the clean repository.
 - Full test command: `npm test`.
 - Production build: `npm run build`.
 - Original source code licensed under MIT.
 - Branding and third-party licensing are documented in NOTICE.
-- Final release verification and publication remain pending.
+- Public GitHub release and production website published on 2026-11-25.
 
 ---
 
 ## 4. Application Architecture and Sections
 
-As defined in `AGENTS.md` and `index.html`, the top-level application architecture is organized into four primary sections:
+As defined in `AGENTS.md` and `index.html`, the top-level application architecture is organized into five primary sections:
 
 1. **Universe** — The visual 3D core of the ecosystem.
 2. **Uptime** — Validator signing history for the 100 displayed heights before the latest observed tip.
 3. **Community Pool** — On-chain community pool transparency.
 4. **Apps** — Curated ecosystem directory.
+5. **Helyx** — Independent validator, infrastructure, initiatives, and public validator information.
 
 Planned feature modules (Wallets, Live Activity, Live Activity Log, Bridge & Wrapping) will integrate as specialized views, overlay panels, or sub-modes within this primary structure.
 
 ```
 +-----------------------------------------------------------------------------------+
 |                               GENESIS OCEAN SHELL                                 |
-|  [Header: Logo | Network Status | Nav: Universe | Pool | Apps]                     |
+|  [Header: Logo | Network Status]                                                  |
+|  [Navigation: Universe | Uptime | Community Pool | Apps | Helyx]                |
 +-----------------------------------------------------------------------------------+
 |                                                                                   |
 |  [ UNIVERSE (3D WebGL Stage) ]           [ SIDEBAR / OVERLAY PANELS ]             |
@@ -392,10 +396,10 @@ The completed Phase 4.3 adapter in `src/js/data/cosmos-data.js` enforces the exa
 - **Detail cache:** normalized transaction details are cached for the session with no TTL; delegation and transaction-list caches use a 60-second TTL and do not provide a full stale-data indicator for clusters.
 - **WebSocket baseline:** the live feed establishes its baseline through `getNetworkIdentity()`, which requires both Genesis REST and RPC. A REST failure can prevent live WebSocket activation even when the socket and RPC are reachable. There is no heartbeat or explicit detection of a silently stalled feed.
 - **Cross-provider verification:** LCD and GL1X transaction evidence is reconciled by hash. Conflicting GL1X details are withheld. Broader cross-provider verification remains future work.
-- **Automated coverage:** the complete Node test suite passed 320 tests before preparation of the clean repository. Comprehensive browser, accessibility and end-to-end coverage remains future work.
+- **Automated coverage:** the complete Node test suite passed 320 tests in the clean repository. Comprehensive browser, accessibility and end-to-end coverage remains future work.
 - **Mobile and accessibility verification:** Pointer Events and reduced-motion handling exist in code, but real-device mobile, keyboard-only, screen-reader, and automated accessibility verification remain pending.
 - **Build size:** the production JavaScript bundle is approximately 665 kB minified and 173 kB gzip. Code splitting remains a potential optimization.
-- **Repository state:** the clean release candidate awaits its initial commit and publication.
+- **Repository state:** the public repository and v1.0.0 release are published.
 
 ### 6.4 Hybrid Source and Integration Policy
 
@@ -514,9 +518,9 @@ A roadmap phase is complete only when:
 - [ ] Zero orphaned, unused, or unauthorized files remain in the repository.
 - [ ] User grants explicit phase acceptance.
 
-### 10.3 Level 3: Public Release 1.0 Readiness Checklist (Milestone Release) `[PROPOSED FUTURE POSSIBILITY]`
+### 10.3 Level 3: Future Comprehensive Release Readiness Checklist `[PROPOSED FUTURE POSSIBILITY]`
 
-Before Genesis Ocean is tagged for public release (`v1.0.0`), the following proposed deployment and quality requirements must be validated:
+The following proposed requirements remain objectives for future comprehensive releases beyond the published v1.0.0 baseline:
 - [ ] **Phase 4 Data Layer Complete:** All data layer milestones (4.1 through 4.8) completed and tested.
 - [ ] **Phase 5 Visual Modules Complete:** Universe (wired to normalized adapter), Wallets, Live Activity, Activity Log, and Bridge operational.
 - [ ] **Mobile & Cross-Browser Verification:** Real iOS (Safari) and Android (Chrome) touch navigation and rendering verified on cellular data.
